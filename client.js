@@ -14,7 +14,7 @@ function readyNow() {
 console.log(randomNumber);
 
 
-function printPeople(){
+function printPeople(){ //print out the people in a new div with their photo
     console.log('in print people');
     
     for (let info of people)
@@ -32,19 +32,21 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (1 + max - min) + min);
 }
 
-function randomName(){
+
+function randomName(){ //generate a random name by referencing randomNumber function and names in the people array
     $('.nameClick').text(`${people[randomNumber(0,10)].name}`);
 
 }
 
-function handleClick(){
+
+function handleClick(){  //Distinguish on click the closest picture and name and if it is right or wrong send an alert to the browser
     let thisName = $(this).closest(`.picture`).data('name');
     let personClicked = $('.nameClick').text();
 
     if(thisName === personClicked){
         alert('Yes!');
         randomName();
-        //$('this').text('Success!')
+        
     } else {
         alert('wrong');
     }
